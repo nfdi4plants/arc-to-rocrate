@@ -2,10 +2,15 @@
 'use strict';
 
 const fs = require('fs');
-const PATH = require('path');
-const SPAWN = require('child_process').spawn;
-const intputPath = process.argv[2] || '';
-const root = PATH.isAbsolute(intputPath) ? intputPath: PATH.join(process.cwd(),intputPath);
+const path = require('path');
+const spawn = require('child_process').spawn;
+
+if(process.argv[2] !== '-p'){
+  console.log('Usage: arc-to-roc -p PATH/TO/ARC');
+  process.exit();
+}
+const intputPath = process.argv[3] || '';
+const root = path.isAbsolute(intputPath) ? intputPath: path.join(process.cwd(),intputPath);
 
 // Note that all @id identifiers must be valid URI references, care must be taken to express any relative paths using / separator, correct casing, and escape special characters like space (%20) and percent (%25), for instance a File Data Entity from the Windows path Results and Diagrams\almost-50%.png becomes "@id": "Results%20and%20Diagrams/almost-50%25.png" in the RO-Crate JSON-LD.
 const toValidId = text => encodeURI(text);
@@ -68,7 +73,7 @@ async function convert(arcJson){
 
     // license: SHOULD link to a Contextual Entity in the RO-Crate Metadata File with a name and description. MAY have a URI (eg for Creative Commons or Open Source licenses). MAY, if necessary be a textual description of how the RO-Crate may be used.
     rootDataEntity.license = "TODO";
-    
+
     // add arc authors
     for(let person of arcJson.people){
       rootDataEntity.author.push(
@@ -87,7 +92,7 @@ async function convert(arcJson){
     for(let study of arcJson.studies){
       for(let assay of study.assays){
         // get assay data
-        const name = study.identifier
+        const name = study.identifier;
         const assayPath = toValidId(assay.filename.split('/')[0]);
         const metadatafile = toValidId(assay.filename.split('/')[1]);
         const id = toValidId("assays/"+assayPath+"/");
@@ -169,16 +174,16 @@ async function convert(arcJson){
         }
       }
     }
-    
+
     finalizeRoc(roc);
-    
+
     console.log(roc);
     fs.writeFileSync('ro-crate-metadata.json', JSON.stringify(roc,null,1), 'UTF-8');
 }
 
 function getArcJson(){
   console.log(`Retrieving arc.json`);
-  const arcProcess = SPAWN('arc', ['-v','0','export'] , {cwd:root});
+  const arcProcess = spawn('arc', ['-v','0','export'] , {cwd:root});
   let jsonAsString = '';
   arcProcess.stdout.setEncoding('utf8');
   arcProcess.stdout.on('data', data=>jsonAsString+=data.toString());
