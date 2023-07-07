@@ -27,6 +27,10 @@ data & arcContext --- D[ ]:::empty --export using ARCtrl--> jsonld
 
 jsonld & rocContext --- E[ ]:::empty --json-ld tool--> roc
 
+roc --import--> data
+
 ```
+
+The `RO-Crate` (and therefore also the `ARC json-ld`) should be designed in a way to allow complete (without loss) import into the ARC datamodel. So the ARC json-ld should cover all logical connections that are important for the ARC.
 
 This repository contains scripts and/or other functionality for converting the `ARC json-ld` to a proper `RO-Crate`.
