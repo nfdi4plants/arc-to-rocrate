@@ -34,3 +34,17 @@ roc --import--> data
 The `RO-Crate` (and therefore also the `ARC json-ld`) should be designed in a way to allow complete (without loss) import into the ARC datamodel. So the ARC json-ld should cover all logical connections that are important for the ARC.
 
 This repository contains scripts and/or other functionality for converting the `ARC json-ld` to a proper `RO-Crate`.
+
+### Profiles
+
+RO-Crate profiles could act as a kind of RO-Crate ARC specification and would give us visibility in the RO-Crate community. They are separated in a human readable and a machine readable component. 
+
+- Investigation
+  - [Description](/profiles/investigation.md)
+  - [Json Schema](/profiles/investigation.json) (work in progress)
+- Study
+  - work in progress
+- Assay
+  - work in progress 
+
+
