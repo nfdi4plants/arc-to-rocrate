@@ -1,0 +1,20 @@
+{
+  "@context": {
+    "sdo": "http://schema.org/",
+    "identifier" : "sdo:identifier",
+    "title": "sdo:headline",
+    "description": "sdo:description",
+    "submissionDate": "sdo:dateCreated",
+    "publicReleaseDate": "sdo:datePublished",
+    "publications": "sdo:citation",
+    "people": "sdo:creator",
+    "studies": "sdo:hasPart",
+    "ontologySourceReferences": "sdo:mentions",
+    "comments": "sdo:disambiguatingDescription",
+
+    "??": "sdo:??",
+    "Investigation": "sdo:Dataset",
+    "publications?": "sdo:subjectOf?",
+    "filename": "sdo:description"
+  }
+}
