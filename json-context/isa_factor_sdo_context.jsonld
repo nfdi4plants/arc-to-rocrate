@@ -1,0 +1,11 @@
+{
+  "@context": {
+    "sdo": "http://schema.org/",
+    "arc": "https://github.com/nfdi4plants/ARC_ontology/blob/main/ARC_v1.1.owl/",
+    "Factor": "sdo:Thing",
+    "ArcFactor": "arc:factor",
+    "factorName": "arc:name",
+    "factorType": "arc:has_factro_name",
+    "comments": "sdo:disambiguatingDescription"
+  }
+}

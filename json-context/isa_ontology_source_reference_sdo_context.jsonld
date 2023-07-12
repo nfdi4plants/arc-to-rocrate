@@ -1,0 +1,13 @@
+{
+  "@context": {
+    "sdo": "http://schema.org/",
+    "OntologySourceReference": "sdo:DefinedTermSet",
+    "type": "sdo:",
+    "title": "sdo:headline",
+    "description": "sdo:description",
+    "name": "sdo:name",
+    "file": "sdo:url",
+    "version": "sdo:version",
+    "comments": "sdo:disambiguatingDescription"
+  }
+}

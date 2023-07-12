@@ -1,0 +1,16 @@
+{
+  "@context": {
+    "sdo": "http://schema.org/",
+    "arc": "https://github.com/nfdi4plants/ARC_ontology/blob/main/ARC_v1.1.owl/",
+    "Protocol": "sdo:Thing",
+    "ArcProtocol": "arc:protocol",
+    "name": "arc:name",
+    "protocolType": "arc:has_protocol_type",
+    "description": "arc:description",
+    "version": "arc:version",
+    "components": "arc:has_component",
+    "parameters": "arc:has_parameter",
+    "uri": "arc:URI",
+    "comments": "arc:has_comment"
+  }
+}

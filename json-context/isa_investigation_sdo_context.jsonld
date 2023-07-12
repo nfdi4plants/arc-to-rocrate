@@ -15,6 +15,6 @@
     "??": "sdo:??",
     "Investigation": "sdo:Dataset",
     "publications?": "sdo:subjectOf?",
-    "filename": "sdo:description"
+    "filename": "sdo:alternateName"
   }
 }

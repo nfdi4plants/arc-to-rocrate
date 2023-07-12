@@ -1,0 +1,30 @@
+{
+  "@context": {
+    "sdo": "http://schema.org/",
+    "arc": "https://github.com/nfdi4plants/ARC_ontology/blob/main/ARC_v1.1.owl/",
+    "Study": "sdo:Dataset",
+    "ArcStudy": "arc:study",
+    "identifier": "sdo:identifier",
+    "title": "sdo:headline",
+    "description": "sdo:description",
+    "submissionDate": "sdo:dateCreated",
+    "publicReleaseDate": "sdo:datePublished",
+    "publications": "sdo:citation",
+    "people": "sdo:creator",
+    "assays": "sdo:hasPart",
+    "filename": "sdo:description",
+    "comments": "sdo:disambiguatingDescription",
+
+    "??": "sdo:??",
+    "protocols": "arc:has_protocol",
+    "materials": "arc:has_study_material",
+    "otherMaterials": "arc:has_study_material",
+    "sources": "arc:has_study_material",
+    "samples": "arc:has_study_material",
+    "processSequence": "arc:has_process_sequence",
+    "factors": "arc:has_factor",
+    "characteristicCategories": "arc:has_characteristic_category",
+    "unitCategories": "arc:has_unit_category",
+    "studyDesignDescriptors": "arc:has_study_design_descriptor"
+  }
+}
