@@ -45,6 +45,10 @@ RO-Crate profiles could act as a kind of RO-Crate ARC specification and would gi
 - Study
   - work in progress
 - Assay
-  - work in progress 
+  - work in progress
+
+### Additional Types Needed
+
+When mapping the ISA model to schema.org and bioschemas in a naive fashion, we ran into some dead-ends. The [schemas subdirectory](/schemas/README.md) contains a detailed description of these problems together with suggestions for additional types that enable a proper mapping from ISA to schema.org.
 
 
