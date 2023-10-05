@@ -15,8 +15,8 @@ A process represents the application of a protocol to some input material (a sam
   - [`name`](): [`Text`](https://schema.org/Text)
   - [`creator`](http://schema.org/Creator): [`Person`](https://schema.org/Person) or [`Organization`](https://schema.org/Organization)
   - [`dateCreated`](http://schema.org/dateCreated): [`Date`](https://schema.org/Date)
-  - [`inputs`](): [`BioSample`](https://bioschemas.org/types/BioSample/0.1-RELEASE-2019_06_19)
-  - [`outputs`](): [`BioSample`](https://bioschemas.org/types/BioSample/0.1-RELEASE-2019_06_19)
+  - [`inputs`](): [`BioSample`](https://bioschemas.org/types/BioSample/0.1-RELEASE-2019_06_19) or [`MediaObject`](https://schema.org/MediaObject)
+  - [`outputs`](): [`BioSample`](https://bioschemas.org/types/BioSample/0.1-RELEASE-2019_06_19) or [`MediaObject`](https://schema.org/MediaObject)
   - [`parameterValues`](): [`PropertyValue`](https://schema.org/PropertyValue)
   - [`executesProtocol`](): [`Protocol`]()
 
