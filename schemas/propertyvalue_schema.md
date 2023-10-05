@@ -7,7 +7,8 @@ This is a new Type that fits into the schema.org hierarchy as follows:
 
 ## Description
 
-A property value describes the value of a attribute or (protocol) parameter, given a sample or an executed instance (ExperimentalProcess) of a protocol. In contrast to a schema.org [PropertyValue](http://schema.org/PropertyValue), not only the [valueReference](http://schema.org/valueReference)/category can be a ontology term ([DefinedTerm](http://schema.org/DefinedTerm)), but also the actual [value](http://schema.org/value) and unit.
+A property value describes the value of a attribute or (protocol) parameter, given a sample or an executed instance (Process) of a protocol. In contrast to a schema.org [PropertyValue](http://schema.org/PropertyValue), not only the [valueReference](http://schema.org/valueReference)(category) can be an ontology term ([DefinedTerm](http://schema.org/DefinedTerm)), but also the actual [value](http://schema.org/value) and unit.
+
 
 ## Properties
 

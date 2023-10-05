@@ -37,10 +37,13 @@ prop --unit--> ont
 ```
 
 When only considering the core "functionality" of ISA, seven types need to be mapped: `Study`/`Assay` (merged since they both represent a process sequence with additional metadata), `Process`, `Protocol`, `Source`/`Sample` (merged since a source is a sample without factors), `Data`, `OntologyAnnotation`, and `ParameterValue` (representing all forms of values, e.g. `FactorValue`, `MaterialAttributeValue`, etc.).
+
 `Study`/`Assay` should be a `Dataset`, as required by RO-Crate.
 `Data` should be a `MediaObject`/`File`, again as required by RO-Crate.
+
 For `Material`, the type `BioSample` already exists in bioschemas.
 An `OntologyAnnotation` can be mapped to `DefinedTerm` and a `ParameterValue` to `PropertyValue`.
+
 Apart from the process sequence, only minor changes are necessary for these types (more details later).
 Mapping the process sequence is the core problem, which we explain now.
 
@@ -55,6 +58,7 @@ It can also interpreted as a `ProcessSequence`, considering the `step` property.
 For a `Process` the following concepts are missing:
 - `output`/"sampleProduced"
 - `parameters` and their values
+- `inputs` and `outputs` might both either be physical entities (samples) or digital entities (data)
 - maybe executed protocol
 
 For a Protocol the following concepts are missing:
@@ -67,7 +71,17 @@ Further minor problems when mapping these ISA types to a LabProtocol:
 
 ## Parameter Values
 
-`ParameterValues` in ISA are very generic key-value pairs. Thus, the `PropertyValue` type seems to fit well. However, in schema.org, only the key (`valueReference`) can be an ontology annotation (`DefinedTerm`). In ISA, the value and the unit can also be ontology terms (e.g. an organism). In a `PropertyValue`, the value can only be `StructuredValue`, not `DefinedTerm`. The unit only has a code and a text, not an ontology reference.
+`ParameterValues` in ISA are very generic key-value pairs. Thus, the `PropertyValue` type seems to fit well. 
+
+However, in schema.org, only the key (`valueReference`) can be an ontology annotation (`DefinedTerm`). In ISA, the value and the unit can also be ontology terms. 
+
+- E.g.: For a given key [organism](http://purl.obolibrary.org/obo/OBI_0100026), the value might be [Arabidopsis thaliana](https://ontobee.org/ontology/NCBITaxon?iri=http://purl.obolibrary.org/obo/NCBITaxon_3702).
+- E.g.: For a given key [temperature](http://purl.obolibrary.org/obo/PATO_0000146), the value might have the unit [degree Celsius](http://purl.obolibrary.org/obo/UO_0000027).
+
+In a `PropertyValue`, the value can only be `StructuredValue`, not `DefinedTerm`. The unit only has a code and a text, not an ontology reference.
+
+
+
 
 Our desired schema for `PropertyValue` would look like this:
 ```JSON
