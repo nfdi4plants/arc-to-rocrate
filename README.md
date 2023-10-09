@@ -33,7 +33,10 @@ roc --import--> data
 
 The `RO-Crate` (and therefore also the `ARC json-ld`) should be designed in a way to allow complete (without loss) import into the ARC datamodel. So the ARC json-ld should cover all logical connections that are important for the ARC.
 
-This repository contains scripts and/or other functionality for converting the `ARC json-ld` to a proper `RO-Crate`. The F# script `export_and_flatten_arc.fsx` loads an example ARC (from the `ARCCtrl` tests), uses `ARCCtrl` to export the json representation of the ARC, and then converts it into an RO-Crate using the [`flatten`](https://www.w3.org/TR/json-ld11-api/#dfn-flattened) function of the [`json-ld.net`](https://www.nuget.org/packages/json-ld.net) library.
+This repository contains scripts and/or other functionality for converting the `ARC json-ld` to a proper `RO-Crate`. At the moment, two options are given:
+
+- The F# script `export_and_flatten_arc.fsx` loads an example ARC (from the `ARCCtrl` tests), uses `ARCCtrl` to export the json representation of the ARC, and then converts it into an RO-Crate using the [`flatten`](https://www.w3.org/TR/json-ld11-api/#dfn-flattened) function of the [`json-ld.net`](https://www.nuget.org/packages/json-ld.net) library.
+- This process can also be done using the [`json-ld`](https://www.w3.org/TR/json-ld11-api/) command line tools. The script `export_arc.fsx` loads an example ARC (from the `ARCCtrl` tests) and uses `ARCCtrl` to export the json representation of the ARC without flattening. The output can be saved into a file by running `dotnet fsi export_and_flatten_arc.fsx > <filename>`. The command `jsonld flatten -c "https://w3id.org/ro/crate/1.1/context" <filename>` then converts it into an RO-Crate using the [`flatten`](https://www.w3.org/TR/json-ld11-api/#dfn-flattened) function.
 
 ### Profiles
 

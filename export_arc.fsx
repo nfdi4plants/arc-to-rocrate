@@ -28,10 +28,10 @@ let invJC = JObject.Parse(invJsonWithContext)
 let invJR = JObject.Parse(invRoCrate)
 
 
-// printfn "%s" (invJC.ToString())
+printfn "%s" (invJC.ToString())
 // printfn "%s" (invJR.ToString())
 // printfn "%s" (contextJ.ToString())
-// #quit;;
+#quit;;
 
 let opts = JsonLdOptions()
 
