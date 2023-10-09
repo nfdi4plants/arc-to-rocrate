@@ -1,24 +1,19 @@
-# ISA-ParameterValue Type
+# PropertyValue Type (adapted)
 
 ## Schema.org hierarchy
 
 This is a new Type that fits into the schema.org hierarchy as follows:
-[Thing](http://schema.org/Thing) > [Intangible](http://schema.org/Intangible) > [StructuredValue]() > [PropertyValue]()
+[Thing](http://schema.org/Thing) > [Intangible](http://schema.org/Intangible) > [StructuredValue](http://schema.org/StructuredValue) > [PropertyValue]()
 
 ## Description
 
-ToDo
+A property value describes the value of a attribute or (protocol) parameter, given a sample or an executed instance (Process) of a protocol. In contrast to a schema.org [PropertyValue](http://schema.org/PropertyValue), not only the [valueReference](http://schema.org/valueReference)(category) can be an ontology term ([DefinedTerm](http://schema.org/DefinedTerm)), but also the actual [value](http://schema.org/value) and unit.
+
 
 ## Properties
 
 ToDo:
-- [`Process`](https://isa-specs.readthedocs.io/en/latest/isajson.html#process-schema-json)
-  - [`name`](): [`Text`](https://schema.org/Text)
-  - [`creator`](http://schema.org/Creator): [`Person`](https://schema.org/Person) or [`Organization`](https://schema.org/Organization)
-  - [`dateCreated`](): [`Date`](https://schema.org/Date)
-  - [`inputs`](): [`BioSample`](https://bioschemas.org/types/BioSample/0.1-RELEASE-2019_06_19)
-  - [`outputs`](): [`BioSample`](https://bioschemas.org/types/BioSample/0.1-RELEASE-2019_06_19)
-  - [`parameterValues`](): [`PropertyValue`](https://schema.org/PropertyValue)
-  - [`executesProtocol`](): [`Protocol`]()
-
-
+- [`PropertyValue`](https://isa-specs.readthedocs.io/en/latest/isajson.html#process-parameter-value-schema-json)
+  - [`category`](): [`DefinedTerm`](https://schema.org/DefinedTerm)
+  - [`value`](): [`DefinedTerm`](https://schema.org/DefinedTerm) or [`Text`](https://schema.org/Text)
+  - [`unit`](): [`DefinedTerm`](https://schema.org/DefinedTerm)
