@@ -1,6 +1,6 @@
 # Mapping the ISA Process Model to RO-Crate/schema.org/bioschemas
 
-Abstract/simplified version of the core ISA Process Model with its mapping to schema.org/bioschemas types (green types and properties are new proposals, yellow types and properties exist in bioschemas, red properties are optional):
+Abstract/simplified version of the core ISA Process Model with its mapping to schema.org/bioschemas types (green types and properties are new proposals, blue types and properties exist in bioschemas, red properties are optional):
 
 ```mermaid
 flowchart TD
@@ -9,9 +9,9 @@ dataset[<h2>Study/Assay=Dataset</h3>- <font color=green>process_sequence=process
 
 Process[<h2>Process=<font color=green>LabProcess</font></h2>- name<br>- performer=agent<br>- date=endTime<br>- inputs=object<br>- outputs=result<br>- <font color=green>parameter_values=parameterValues</font><br>- <font color=green>executes_protocol=executesProtocol</font>]
 
-Protocol[<h2>Protocol=<font color=yellow>LabProtocol</font></h2>- name<br>- <font color=yellow>protocol_type=purpose</font><br>- <font color=yellow>components=labEquipment/reagent/software</font><br>- <font color=red>protocol_parameters=?</font><br>- version<br>- comment<br>- description<br>- url]
+Protocol[<h2>Protocol=<font color=blue>LabProtocol</font></h2>- name<br>- <font color=blue>protocol_type=purpose</font><br>- <font color=blue>components=labEquipment/reagent/software</font><br>- <font color=red>protocol_parameters=?</font><br>- version<br>- comment<br>- description<br>- url]
 
-BioSample[<h2>Source/Sample/Material=<font color=yellow>Sample</font></h2>- name<br>- characteristics=additionalProperty<br>- factors=additionalProperty<br>- <font color=red>derivesFrom=?</font>]
+BioSample[<h2>Source/Sample/Material=<font color=blue>Sample</font></h2>- name<br>- characteristics=additionalProperty<br>- factors=additionalProperty<br>- <font color=red>derivesFrom=?</font>]
 
 DataFile[<h2>Data=MediaObject</h2>- name<br>- <font color=red>type=?</font><br>- comment]
 
