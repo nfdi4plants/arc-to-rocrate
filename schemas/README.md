@@ -1,35 +1,40 @@
 # Mapping the ISA Process Model to RO-Crate/schema.org/bioschemas
 
-Abstract/simplified version of the core ISA Process Model with its mapping to schema.org/bioschemas types:
+Abstract/simplified version of the core ISA Process Model with its mapping to schema.org/bioschemas types (green types and properties are new proposals, yellow types and properties exist in bioschemas, red properties are optional):
 
 ```mermaid
 flowchart TD
 
-dataset[<h2>Study/Assay=Dataset</h3>- <font color=red>process_sequence=?</font><br>- <font color=green>hasPart</font><br>- ...]
+dataset[<h2>Study/Assay=Dataset</h3>- <font color=green>process_sequence=processSequence</font><br>- hasPart<br>- ...]
 
-Process[<h2>Process=<font color=red>LabProtocol?</font></h2>- name<br>- <font color=green>performer=creator?</font><br>- date=dateCreated<br>- inputs=sampleUsed<br>- <font color=red>outputs=?</font><br>- <font color=red>parameterValues=?</font><br>- <font color=red>executesProtocol=?</font>]
+Process[<h2>Process=<font color=green>LabProcess</font></h2>- name<br>- performer=agent<br>- date=endTime<br>- inputs=object<br>- outputs=result<br>- <font color=green>parameter_values=parameterValues</font><br>- <font color=green>executes_protocol=executesProtocol</font>]
 
-Protocol[<h2>Protocol=<font color=yellow>LabProtocol?</font></h2>- name<br>- <font color=red>protocolType=?</font><br>- <font color=yellow>components=labEquipment/reagent/software</font><br>- <font color=red>parameters=?</font>]
+Protocol[<h2>Protocol=<font color=yellow>LabProtocol</font></h2>- name<br>- <font color=yellow>protocol_type=purpose</font><br>- <font color=yellow>components=labEquipment/reagent/software</font><br>- <font color=red>protocol_parameters=?</font><br>- version<br>- comment<br>- description<br>- url]
 
-BioSample[<h2>Source/Sample/Material=Sample</h2>- name<br>- characteristics=additionalProperty<br>- factors=additionalProperty<br>- <font color=red>derivesFrom=?</font>]
+BioSample[<h2>Source/Sample/Material=<font color=yellow>Sample</font></h2>- name<br>- characteristics=additionalProperty<br>- factors=additionalProperty<br>- <font color=red>derivesFrom=?</font>]
 
-DataFile[<h2>Data=MediaObject</h2>- name<br>- <font color=red>type=?</font>]
+DataFile[<h2>Data=MediaObject</h2>- name<br>- <font color=red>type=?</font><br>- comment]
 
 ont[<h2>OntologyAnnotation=DefinedTerm</h2>- annotationValue=name<br>termSource=inDefinedTermSet<br>- termAccession=termCode]
 
-prop[<h2>ParameterValue=PropertyValue</h2>- category=valueReference<br>- <font color=yellow>unit=?</font><br>- <font color=yellow>value=value</font>]
+prop[<h2>ParameterValue=PropertyValue</h2>- category=propertyID/name<br>- unit=unitCode/unitText<br>- value=valueReference/value]
 
 dataset --hasPart--> dataset
-dataset --hasPart--> DataFile
+dataset --hasPart----> DataFile
 dataset --process_sequence--> Process
+
 Process --"output"---> DataFile
 Process --"output"--> BioSample
-Process --input---> BioSample
-BioSample --derivesFrom--> BioSample
+Process --input--> BioSample
 Process --executesProtocol--> Protocol
+Process --parameterValues---> prop
+
+BioSample --derivesFrom--> BioSample
 BioSample --additionalProperty--> prop
-Protocol --protocolType----> ont
-Protocol --parameters----> ont
+
+Protocol --protocolType---> ont
+Protocol --parameters---> ont
+
 prop --category--> ont
 prop --value--> ont
 prop --unit--> ont
