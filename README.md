@@ -54,4 +54,6 @@ RO-Crate profiles could act as a kind of RO-Crate ARC specification and would gi
 
 When mapping the ISA model to schema.org and bioschemas in a naive fashion, we ran into some dead-ends. The [schemas subdirectory](/schemas/README.md) contains a detailed description of these problems together with suggestions for additional types that enable a proper mapping from ISA to schema.org.
 
+### Validation
 
+In order to validate if a given RO-Crate represents an ARC, we want to use JSON Schema. Since validation of flattened JOSN-LD is not straight-forward, we first have to bring the RO-Crate into a canonical form. For this, we use JSON-LD Framing together with Expanding. We first use Framing with full embedding to generate one JSON object describing the RO-Crate metadata entity. Through embedding, this object contains the investigation object and all other ISA metadata objects. We then use expanding to resolve all terms given in contexts into full schema.org URLs. A JSON Frame and according scripts will be added in the future.
