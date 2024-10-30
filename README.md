@@ -2,6 +2,9 @@
 
 Repository for exporting the arc to a RO-Crate.
 
+> [!IMPORTANT]  
+> Outdated Repository: While the concept of conversion from ARC to RO-Crate is still correct, the provided scripts are based on outdated libraries and do no longer work.
+
 ### General workflow
 
 The `ARC` has to be exported to json together with its [jsonld context](http://niem.github.io/json/reference/json-ld/context/) file. This can then be flattened into a concise and semantically correct `ro-crate`.
